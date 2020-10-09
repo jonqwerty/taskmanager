@@ -8,8 +8,12 @@
 
 				<div class="project">
 					<p>{{ project.title }}</p>
-					<a class="edit" href="{% url 'update_project' project.id %}">Edit</a>
-					<a  href="{% url 'delete_project' project.id %}" class="delete">Delete</a>
+					<a class="edit" href="{% url 'update_project' project.id %}">
+						<img src=" static/images/pencil_icon.png " alt="pencil_icon">
+					</a>
+					<a  href="{% url 'delete_project' project.id %}" class="delete">
+						<img src=" static/images/trash.png " alt="trash_icon">
+					</a>
 				</div>
 
 				<div class="addtask">

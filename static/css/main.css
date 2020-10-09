@@ -72,19 +72,25 @@ body{
 	padding:4px;
 	text-decoration: none;
 	color: white;
-	border:1px solid black;
+	
 }
 
 .project a.edit {
-	background: orange;
-	border-radius: 8px;
+	
 	margin-left: 20px;
 }
 
+.project a.edit img {
+	
+}
+
 .project a.delete {
-	background: red;
-	border-radius: 8px;
+	
 	margin-right: 20px;
+}
+
+.project a.edit img {
+	
 }
 
 .addtask{
