@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Task manager</title>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
+	
+</head>
+<body>
+	
+	<header class="title">
+		<h1>Simple todo lists</h1>
+		<p>From Serhii</p>
+	</header>
+
+
+	{% block content %}
+
+	index.html
+
+	{% endblock content %}
+
+
+	<footer class="footer">
+
+		<a class="button" href="{% url 'create_project' %}">
+		    
+			Add TODO List
+		</a>
+
+		<p><img src="{% static 'images/djangologo.png' %}" alt="logo_gango"></p>
+		
+	</footer>
+
+</body>
+</html>

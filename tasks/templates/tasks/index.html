@@ -1,0 +1,40 @@
+{% extends 'tasks/base.html' %}
+
+
+{% block content %}
+
+	{% for project in projects %}
+		<section class="section">
+
+				<div class="project">
+					<p>{{ project.title }}</p>
+					<a class="edit" href="{% url 'update_project' project.id %}">Edit</a>
+					<a  href="{% url 'delete_project' project.id %}" class="delete">Delete</a>
+				</div>
+
+				<div class="addtask">
+					<input type="text" placeholder="Start typing here to create a task...">
+					<a href="#">Add Task</a>
+				</div>
+
+			
+				{% for task in project.task_set.all %}
+
+				
+					<div class="content">
+						<input type="checkbox" name="complete">
+
+						<p>{{task.title}}</p>
+
+						<a href="#" class="edittask">Edit task</a>
+						<a href="#" class="deletetask">Delete task</a>
+						
+
+					</div>
+				{% endfor%}
+			
+				
+		</section>
+	{% endfor %}
+
+{% endblock content %}

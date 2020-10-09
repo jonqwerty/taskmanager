@@ -1,0 +1,155 @@
+body{
+	width: 1200px;
+	height: 1000px;
+	padding: 0;
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	background-image: linear-gradient(to bottom , #e5dcdc, #f5a911);
+	background-attachment: fixed;
+	display: flex;
+  	flex-direction: column;
+}
+
+.title{
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.section{
+	
+	flex: 1 0 auto;
+}
+.footer{
+	padding-top:100px;
+	text-align: center;
+	color: white;
+	flex-shrink: 0;
+}
+
+.footer a.button{
+	background: blue;
+	color: white;
+	border-radius: 8px;
+	width: 150px;
+	height: 100px;
+}
+
+.footer a.button{
+	text-decoration: none;
+	padding:20px;
+
+}
+
+.section{
+	width: 800px;
+	padding-top: 20px;
+	margin: 0 auto;
+}
+
+.project{
+	border: 1px solid black;
+	background: blue;
+	height: 60px;
+	text-decoration: none;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;	
+}
+
+.project p {
+	font-size: 20px;
+	font-weight: bold;
+	padding-left: 40px;
+	width: 550px;
+	border: 1px solid blue;
+/*hidden symbols without spase*/
+	overflow-x:hidden;
+}
+
+.project a{
+	padding:4px;
+	text-decoration: none;
+	color: white;
+	border:1px solid black;
+}
+
+.project a.edit {
+	background: orange;
+	border-radius: 8px;
+	margin-left: 20px;
+}
+
+.project a.delete {
+	background: red;
+	border-radius: 8px;
+	margin-right: 20px;
+}
+
+.addtask{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;	
+	border: 1px solid black;
+	background: grey;
+	height: 60px;
+
+}
+
+.addtask a{
+	padding:4px;
+	text-decoration: none;
+	color: white;
+	border:1px solid black;
+	background: green;
+	border-radius: 8px;
+	margin-right: 20px;
+}
+
+.addtask input{
+	width: 500px;
+	padding-left: 20px;
+	margin-left: 20px;
+	/*hidden symbols without spase*/
+	overflow-x:hidden;
+}
+
+
+
+.content{
+	background: white;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;	
+	border: 1px solid black;
+	border-radius: 0 0 8px 8px;	
+}
+
+.content p{
+	padding-left: 20px;
+	width: 500px;
+	border: 1px solid white;
+/*hidden symbols without spase*/
+	overflow-x:hidden;
+
+}
+
+.content a {
+	padding:4px;
+	text-decoration: none;
+	color: black;
+	border:1px solid black;
+}
+
+.content a.edittask {
+	background: orange;
+	border-radius: 8px;
+	margin-right: 20px;
+}
+
+.content a.deletetask {
+	background: red;
+	border-radius: 8px;
+	margin-right: 20px;
+}
