@@ -26,12 +26,20 @@
 
 				
 					<div class="content">
-						<input type="checkbox" name="complete">
+						
+						{% if task.complete == True %}
+						<input type="checkbox" name="complete" id="id_complete" checked >
+						{% else %}
+						<input type="checkbox" name="complete" id="id_complete"  >
+						{% endif %}
 
 						<p>{{task.title}}</p>
 
 						<a href="{% url 'update_task' task.id %}" class="edittask">Edit task</a>
 						<a href="{% url 'delete_task' task.id %}" class="deletetask">Delete task</a>
+						
+						
+						
 						
 
 					</div>

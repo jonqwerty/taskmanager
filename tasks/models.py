@@ -19,7 +19,7 @@ class Task(models.Model):
 		)
 	project = models.ForeignKey(Project, null=True, on_delete=models.SET_NULL)
 	title = models.CharField(max_length=300, null=True)
-	complete = models.BooleanField(default=False, null=True)
+	complete = models.BooleanField(default=False)
 	status = models.CharField(max_length=300, null=True, choices=STATUS)
 	created = models.DateTimeField(auto_now_add=True,null=True)
 
