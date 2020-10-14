@@ -23,10 +23,19 @@
 					<a class="plus" href="#">
 						<img src=" static/images/plus_icon.png " alt="plus_icon">
 					</a>
-					<input type="text" placeholder="Start typing here to create a task...">
+
+					<form action="{% url 'create_task' project.id %}" method="POST">
+
+						{% csrf_token %}
+						<input type="text" name="title" id="id_title" required placeholder="Start typing here to create a task...">
 					
 
-					<a class= "button_add_task" href="{% url 'create_task' %}">Add Task</a>
+						<button type="submit" class= "button_add_task" href="">Add Task</button>
+
+
+					</form>
+					
+					
 				</div>
 
 			
