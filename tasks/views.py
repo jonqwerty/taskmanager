@@ -91,3 +91,19 @@ def deleteTask(request, pk):
 
 	context = {'item':task}
 	return render (request, 'tasks/delete_task.html', context)
+
+
+def createTaskFromHtml():
+	form = TaskForm()
+
+	if request.method == 'POST':
+		form = TaskForm(request.POST)
+		if form.is_valid():
+			form.save()
+		return redirect('/')
+
+	context = {'form':form}
+	return render(request, 'tasks/create_task_now.html', context )
+
+
+
