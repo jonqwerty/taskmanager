@@ -108,7 +108,7 @@ body{
 
 }
 
-.addtask a.button_add_task{
+/*.addtask a.button_add_task{
 	padding:4px;
 	text-decoration: none;
 	color: white;
@@ -116,7 +116,7 @@ body{
 	background: green;
 	border-radius: 8px;
 	margin-right: 20px;
-}
+}*/
 
 .addtask a.plus{
 	margin-left: 25px;
@@ -124,14 +124,21 @@ body{
 
 .addtask input{
 	height: 30px;
-	width: 600px;
+	width: 580px;
 	padding-left: 20px;
-	margin-left: 25px;
+	margin-left: 0px;
 	/*hidden symbols without spase*/
 	overflow-x:hidden;
 }
 
-
+.addtask button.button_add_task{
+	background: green;
+	border-radius: 8px;
+	margin-right: 20px;
+	height: 40px;
+	width: 100px;
+	color: white;
+}
 
 .content{
 	background: white;
