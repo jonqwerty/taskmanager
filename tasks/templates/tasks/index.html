@@ -7,6 +7,9 @@
 		<section class="section">
 
 				<div class="project">
+					<a class="calendar" href="#">
+						<img src=" static/images/calendar.png " alt="calendar_icon">
+					</a>
 					<p>{{ project.title }}</p>
 					<a class="edit" href="{% url 'update_project' project.id %}">
 						<img src=" static/images/pencil_icon.png " alt="pencil_icon">
@@ -17,8 +20,13 @@
 				</div>
 
 				<div class="addtask">
+					<a class="plus" href="#">
+						<img src=" static/images/plus_icon.png " alt="plus_icon">
+					</a>
 					<input type="text" placeholder="Start typing here to create a task...">
-					<a href="{% url 'create_task' %}">Add Task</a>
+					
+
+					<a class= "button_add_task" href="{% url 'create_task' %}">Add Task</a>
 				</div>
 
 			
@@ -28,15 +36,19 @@
 					<div class="content">
 						
 						{% if task.complete == True %}
-						<input type="checkbox" name="complete" id="id_complete" checked >
+						<input class="checkbox" type="checkbox" name="complete" id="id_complete" checked >
 						{% else %}
-						<input type="checkbox" name="complete" id="id_complete"  >
+						<input class="checkbox" type="checkbox" name="complete" id="id_complete"  >
 						{% endif %}
 
 						<p>{{task.title}}</p>
 
-						<a href="{% url 'update_task' task.id %}" class="edittask">Edit task</a>
-						<a href="{% url 'delete_task' task.id %}" class="deletetask">Delete task</a>
+						<a href="{% url 'update_task' task.id %}" class="edittask">
+							<img src=" static/images/pencil_icon.png " alt="pencil_icon">
+						</a>
+						<a href="{% url 'delete_task' task.id %}" class="deletetask">
+							<img src=" static/images/trash.png " alt="trash_icon">
+						</a>
 						
 						
 						

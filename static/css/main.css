@@ -61,7 +61,7 @@ body{
 .project p {
 	font-size: 20px;
 	font-weight: bold;
-	padding-left: 40px;
+	padding-left: 0px;
 	width: 550px;
 	border: 1px solid blue;
 /*hidden symbols without spase*/
@@ -73,6 +73,11 @@ body{
 	text-decoration: none;
 	color: white;
 	
+}
+
+.project a.calendar {
+	
+	margin-left: 20px;
 }
 
 .project a.edit {
@@ -103,7 +108,7 @@ body{
 
 }
 
-.addtask a{
+.addtask a.button_add_task{
 	padding:4px;
 	text-decoration: none;
 	color: white;
@@ -113,11 +118,15 @@ body{
 	margin-right: 20px;
 }
 
+.addtask a.plus{
+	margin-left: 25px;
+}
+
 .addtask input{
 	height: 30px;
-	width: 650px;
+	width: 600px;
 	padding-left: 20px;
-	margin-left: 20px;
+	margin-left: 25px;
 	/*hidden symbols without spase*/
 	overflow-x:hidden;
 }
@@ -146,17 +155,22 @@ body{
 	padding:4px;
 	text-decoration: none;
 	color: black;
-	border:1px solid black;
+	
 }
 
+.content input.checkbox {
+	/*background: orange;*/
+	/*border-radius: 8px;*/
+	margin-left: 30px;
+}
 .content a.edittask {
-	background: orange;
-	border-radius: 8px;
-	margin-right: 20px;
+	/*background: orange;*/
+	/*border-radius: 8px;*/
+	margin-left: 20px;
 }
 
 .content a.deletetask {
-	background: red;
-	border-radius: 8px;
+	/*background: red;*/
+	/*border-radius: 8px;*/
 	margin-right: 20px;
 }
