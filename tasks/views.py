@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse , HttpResponseRedirect
+
+from django.urls import reverse
 
 
 from .models import *
@@ -56,18 +58,18 @@ def deleteProject(request, pk):
 	context = {'item':project}
 	return render (request, 'tasks/delete_project.html', context)
 
-def createTask(request):
+# def createTask(request):
 
-	form = TaskForm()
+# 	form = TaskForm()
 
-	if request.method == 'POST':
-		form = TaskForm(request.POST)
-		if form.is_valid():
-			form.save()
-		return redirect('/')
+# 	if request.method == 'POST':
+# 		form = TaskForm(request.POST)
+# 		if form.is_valid():
+# 			form.save()
+# 		return redirect('/')
 
-	context = {'form':form}
-	return render(request, 'tasks/create_project.html', context )
+# 	context = {'form':form}
+# 	return render(request, 'tasks/create_project.html', context )
 
 def updateTask(request, pk):
 	task = Task.objects.get(id=pk)
@@ -91,3 +93,26 @@ def deleteTask(request, pk):
 
 	context = {'item':task}
 	return render (request, 'tasks/delete_task.html', context)
+
+
+def createTask(request, pk):
+	a = Project.objects.get(id = pk)
+	if request.method == 'POST':
+		d = request.POST['title']
+		a.task_set.create(title = d )
+		return redirect('/')
+
+	context = {"project.id":a}
+
+	return render ( request, 'tasks/index.html', context )
+
+	
+
+# 	if request.method == 'POST':
+# 		form = TaskForm(request.POST)
+# 		if form.is_valid():
+# 			form.save()
+# 		return redirect('/')
+
+# 	context = {'form':form}
+# 	return render(request, 'tasks/create_project.html', context )
