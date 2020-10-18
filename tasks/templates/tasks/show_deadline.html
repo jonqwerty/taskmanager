@@ -1,0 +1,28 @@
+{% extends 'tasks/base.html' %}
+
+{% block content %}
+
+	
+	
+<div style="text-align: center; border: 1px solid black; border-radius: 8px; 
+	background: white; font-weight: bold;">
+
+	{% if dd > 0 %}
+
+		<p>Remaining until of deadline {{dd}} days.</p>
+
+	{% elif  dd == 0 %}
+
+		<p> Deadline is happened now. </p>
+
+	{% elif dd < 0 %}
+
+		<p> Dude, take care about  your project. Because {{dd}} days past from date of deadline.</p>
+
+	{% endif%}
+
+	
+</div>
+
+{% endblock content %}
+

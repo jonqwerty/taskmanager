@@ -35,6 +35,21 @@ def createProject(request):
 	context = {'form':form}
 	return render(request, 'tasks/create_project.html', context )
 
+def deadlineProject(request, pk):
+	project = Project.objects.get(id=pk)
+	d = project.deadline_func()
+
+	d = d.days
+	
+
+
+	context = {"dd":d}
+
+	print (type(d))
+
+	return render ( request, 'tasks/show_deadline.html', context )
+
+
 def updateProject(request, pk):
 	project = Project.objects.get(id=pk)
 	form = ProjectForm(instance=project)

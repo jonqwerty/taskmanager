@@ -7,7 +7,7 @@
 		<section class="section">
 
 				<div class="project">
-					<a class="calendar" href="#">
+					<a class="calendar" href="{% url 'deadline_project' project.id %}">
 						<img src=" static/images/calendar.png " alt="calendar_icon">
 					</a>
 					<p>{{ project.title }}</p>
