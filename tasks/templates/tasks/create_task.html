@@ -1,5 +1,18 @@
-<form method="POST" action="">	
-		{% csrf_token %}
-		{{form}}
-		<input  type="submit" name="Submit" value="Submit">
-</form>
+{% extends 'tasks/base.html' %}
+
+{% block content %}
+
+	
+	
+<div style="text-align: center; border: 1px solid black; border-radius: 8px; 
+	background: white; font-weight: bold;">
+
+	<form method="POST" action="" style="margin:16px 0 16px 0 ">	
+			{% csrf_token %}
+			{{form}}
+			<input  type="submit" name="Submit" value="Submit">
+	</form>
+
+</div>
+
+{% endblock content %}
