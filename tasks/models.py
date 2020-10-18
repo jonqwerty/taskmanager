@@ -1,20 +1,28 @@
 from django.db import models
+from datetime import *
+
 
 # Create your models here.
 
 
 class Project(models.Model):
-	title = models.CharField(max_length=300, null=True)
+	title = models.CharField('Title of project', max_length=300, null=True)
+	deadline = models.DateField('Deadline of the project (year, month, day)', default=date.today)
 	created = models.DateTimeField(auto_now_add=True, null=True)
 
 	def __str__(self):
 		return self.title
 
+	def deadline_func(self):
+		days = self.deadline - date.today()
+		return days
+		
+
 
 
 class Task(models.Model):
 	
-	project = models.ForeignKey(Project, null=True, on_delete=models.SET_NULL)
+	project = models.ForeignKey(Project, null=True, on_delete=models.CASCADE)
 	title = models.CharField(max_length=300, null=True)
 	complete = models.BooleanField(default=False)
 	created = models.DateTimeField(auto_now_add=True,null=True)

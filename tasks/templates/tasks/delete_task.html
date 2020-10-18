@@ -1,10 +1,22 @@
+{% extends 'tasks/base.html' %}
 
-<p>Are You sure You want to delete "{{item}}"</p>
+{% block content %}
 
-<form action="{% url 'delete_task' item.id %}" method="POST">
-	{% csrf_token %}
-	<a href="{% url 'list'%}">Cancel</a>
-
-	<input type="submit" name="Confirm" value="Submit">
 	
-</form>
+	
+<div style="text-align: center; border: 1px solid black; border-radius: 8px; 
+	background: white; font-weight: bold;">
+
+	<p>Are You sure You want to delete "{{item}}"</p>
+
+	<form action="{% url 'delete_task' item.id %}" method="POST" style="margin: 16px 0 16px 0">
+		{% csrf_token %}
+		<a href="{% url 'list'%}">Cancel</a>
+
+		<input type="submit" name="Confirm" value="Submit">
+		
+	</form>
+
+</div>
+
+{% endblock content %}
