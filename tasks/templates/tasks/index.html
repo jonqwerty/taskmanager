@@ -52,9 +52,14 @@
 
 						<p>{{task.title}}</p>
 
+						<a class="calendar" href="{% url 'deadline_task' task.id %}">
+						<img src=" static/images/calendar.png " alt="calendar_icon">
+						</a>
+
 						<a href="{% url 'update_task' task.id %}" class="edittask">
 							<img src=" static/images/pencil_icon.png " alt="pencil_icon">
 						</a>
+						
 						<a href="{% url 'delete_task' task.id %}" class="deletetask">
 							<img src=" static/images/trash.png " alt="trash_icon">
 						</a>
