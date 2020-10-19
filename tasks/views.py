@@ -47,7 +47,7 @@ def deadlineProject(request, pk):
 
 	print (type(d))
 
-	return render ( request, 'tasks/show_deadline.html', context )
+	return render ( request, 'tasks/show_deadline_project.html', context )
 
 
 def updateProject(request, pk):
@@ -120,6 +120,16 @@ def createTask(request, pk):
 	context = {"project.id":a}
 
 	return render ( request, 'tasks/index.html', context )
+
+def deadlineTask(request, pk):
+	task = Task.objects.get(id=pk)
+	d = task.deadline_func()
+
+	d = d.days
+	
+	context = {"dd":d}
+
+	return render ( request, 'tasks/show_deadline_task.html', context )
 
 	
 
