@@ -1,17 +1,17 @@
-import Sortable from "sortablejs";
 
 
-const groups = document.getElementById('groups');
-   let sortable = Sortable.create(groups, {
-       handle: '.handle',
-       dragClass: 'dragged',
-       chosenClass: 'sortableChosen',
-       onChange: () => {
-           saveOrderingButton.disabled = false;
-    }
-});
+f = $( function() {
+    	$( "tbody" ).sortable({
+    		handle: ".handle"
 
-const saveOrderingButton = document.getElementById('saveOrdering');
+    	});
+    	
+    	$('tbody').css('border', 'solid 3px red')
+  	} );
+
+
+
+/*const saveOrderingButton = document.getElementById('saveOrdering');
 const orderingForm = document.getElementById('orderingForm');
 const formInput = orderingForm.querySelector('#orderingInput');
 
@@ -24,4 +24,4 @@ const formInput = orderingForm.querySelector('#orderingInput');
 	    formInput.value = ids.join(',');
 	    orderingForm.submit();
 	    saveOrderingButton.addEventListener('click', saveOrdering);
-	}
+	}*/

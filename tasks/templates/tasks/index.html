@@ -44,13 +44,14 @@
 					
 
 				<table class="raz">
-					{% for task in project.task_set.all %}
+					
 					<tbody id="groups">
+					{% for task in project.task_set.all %}
 
 					
 
 						<tr data-lookup="{{ group.lookup_id }}">
-							<td style="width: 50px;"><span class="handle"></span></td>
+							<td style="width: 50px;"><span class="handle"><img src=" static/images/Up_Down.png " alt="Up_Down_icon"></span></td>
 
 							{% if task.complete == True %}
 							<td style="width: 50px;"class="ch"><input class="checkbox" type="checkbox" name="complete" id="id_complete" checked ></td>
@@ -74,9 +75,9 @@
 
 						</tr>
 
-					
-					</tbody>
 					{% endfor%}
+					</tbody>
+					
 				</table>
 
 
