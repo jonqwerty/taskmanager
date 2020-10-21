@@ -16,7 +16,10 @@ class TaskForm(forms.ModelForm):
 		model = Task
 		fields = '__all__'
 
+class OrderingForm(forms.Form):
+    ordering = forms.CharField()
 
+    
 #class TaskForm(forms.ModelForm):
 	###title = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Add new task...'}))
 	#class Meta:

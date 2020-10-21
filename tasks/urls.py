@@ -15,6 +15,8 @@ urlpatterns = [
 
     path('update_task/<str:pk>' , views.updateTask, name="update_task"),
     path('delete_task/<str:pk>' , views.deleteTask, name="delete_task"),
+
+    path('save-group-ordering', views.save_new_ordering, name='save-group-oldering'),
    
    
 ]

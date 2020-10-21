@@ -3,6 +3,7 @@ from django.http import HttpResponse , HttpResponseRedirect
 
 from django.urls import reverse
 
+from django.views.decorators.http import *
 
 from .models import *
 from .forms import *
@@ -11,7 +12,9 @@ from .forms import *
 
 def projects_list(request):
 
-	projects = Project.objects.order_by('created')
+	# projects = Project.objects.order_by('created')
+
+	projects = Project.objects.all()
 
 	
 	#project = Project.objects.get(pk = 2)
@@ -141,3 +144,21 @@ def deadlineTask(request, pk):
 
 # 	context = {'form':form}
 # 	return render(request, 'tasks/create_project.html', context )
+
+
+@require_POST
+def save_new_ordering(request):
+	form = OrderingForm(request.POST)
+
+	if form.is_valid():
+	    ordered_ids = form.cleaned_data["ordering"].split(',')
+
+	    with transaction.atomic():
+	        current_order = 1
+	        for lookup_id in ordered_ids:
+	            group = Group.objects.get(lookup_id__exact=lookup_id)
+	            group.order = current_order
+	            group.save()
+	            current_order += 1
+
+	return redirect('group-list')

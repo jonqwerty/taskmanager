@@ -1,3 +1,4 @@
+import uuid
 from django.db import models
 from datetime import *
 
@@ -34,6 +35,10 @@ class Task(models.Model):
 	def deadline_func(self):
 		days = self.deadline - date.today()
 		return days
+
+class Group(models.Model):
+    lookup_id = models.UUIDField(default=uuid.uuid4, editable=False, db_index=True)
+    order = models.IntegerField(blank=False, default=100_000)
 
 
 
