@@ -4,6 +4,7 @@ from django.http import HttpResponse , HttpResponseRedirect
 from django.urls import reverse
 
 from django.views.decorators.http import *
+from django.db import transaction
 
 from .models import *
 from .forms import *
@@ -99,6 +100,8 @@ def updateTask(request, pk):
 			form.save()
 		return redirect('/')
 
+	print(type(task.id))
+
 	context = {'form':form}	
 	return render(request, 'tasks/create_task.html', context )
 
@@ -155,10 +158,21 @@ def save_new_ordering(request):
 
 	    with transaction.atomic():
 	        current_order = 1
-	        for lookup_id in ordered_ids:
-	            group = Group.objects.get(lookup_id__exact=lookup_id)
+	        for id in ordered_ids:
+	            group = Task.objects.get(id__exact=id)
 	            group.order = current_order
 	            group.save()
 	            current_order += 1
 
-	return redirect('group-list')
+
+	print (type(id))
+	print ((Task.objects.get(id=1)).order)
+	
+	a = Task.objects.all().order_by('order')
+
+	context = {'aa':a}
+
+	return render(request, 'tasks/reorder.html', context)
+	
+
+	

@@ -28,6 +28,8 @@ class Task(models.Model):
 	complete = models.BooleanField(default=False)
 	deadline = models.DateField('Deadline of the task (year, month, day)', default=date.today)
 	created = models.DateTimeField(auto_now_add=True,null=True)
+	lookup_id = models.UUIDField(default=uuid.uuid4, editable=False, db_index=True)
+	order = models.IntegerField(blank=False, default=100_000)
 
 	def __str__(self):
 		return self.title
@@ -36,9 +38,9 @@ class Task(models.Model):
 		days = self.deadline - date.today()
 		return days
 
-class Group(models.Model):
-    lookup_id = models.UUIDField(default=uuid.uuid4, editable=False, db_index=True)
-    order = models.IntegerField(blank=False, default=100_000)
+# class Group(models.Model):
+#     lookup_id = models.UUIDField(default=uuid.uuid4, editable=False, db_index=True)
+#     order = models.IntegerField(blank=False, default=100_000)
 
 
 

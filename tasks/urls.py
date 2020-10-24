@@ -11,12 +11,14 @@ urlpatterns = [
     path('delete_project/<str:pk>' , views.deleteProject, name="delete_project"),
     path('create_task/<str:pk>' , views.createTask, name="create_task"),
 
+    path('save-group-ordering/', views.save_new_ordering, name='save-group-oldering'),
+
     path('deadline_task/<str:pk>' , views.deadlineTask, name="deadline_task"),
 
     path('update_task/<str:pk>' , views.updateTask, name="update_task"),
     path('delete_task/<str:pk>' , views.deleteTask, name="delete_task"),
 
-    path('save-group-ordering', views.save_new_ordering, name='save-group-oldering'),
+    
    
    
 ]

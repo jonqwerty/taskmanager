@@ -1,5 +1,5 @@
 from django import forms
-from django.forms import ModelForm
+from django.forms import ModelForm, Form
 
 from .models import *
 
@@ -16,8 +16,9 @@ class TaskForm(forms.ModelForm):
 		model = Task
 		fields = '__all__'
 
+
 class OrderingForm(forms.Form):
-    ordering = forms.CharField()
+	ordering = forms.CharField()
 
     
 #class TaskForm(forms.ModelForm):
