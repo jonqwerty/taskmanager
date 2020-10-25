@@ -1,18 +1,17 @@
 
 
 $( function() {
-    	$( "tbody" ).sortable({
+    	$( ".groups" ).sortable({
     		handle: ".handle",
-    		
-
+            
     	});
     	
-    	$('tbody').css('border', 'solid 3px red')
+    	$('.groups').css('border', 'solid 3px red')
 } );
 
-const saveOrderingButton = document.getElementById('saveOrdering');
-const orderingForm = document.getElementById('orderingForm');
-const formInput = orderingForm.querySelector('#orderingInput');
+const saveOrderingButton = document.querySelector(".saveOrdering");
+const orderingForm = document.querySelector(".orderingForm");
+const formInput = orderingForm.querySelector(".orderingInput");
 
 function saveOrdering() {
     const rows = document.getElementById("groups").querySelectorAll('tr');
@@ -22,6 +21,7 @@ function saveOrdering() {
     }
     formInput.value = ids.join(',');
     orderingForm.submit();
+    
     console.log(ids)
     console.log(typeof ids)
     console.log(typeof(ids[0]))
@@ -29,7 +29,10 @@ function saveOrdering() {
 
 saveOrderingButton.addEventListener('click', saveOrdering);
 
-
+/*for (var i = 0; i < saveOrderingButton.length; i++) {
+   saveOrderingButton[i].addEventListener('click', saveOrdering);
+   };
+*/
 
 
 

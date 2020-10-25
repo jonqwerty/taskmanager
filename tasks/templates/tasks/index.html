@@ -27,7 +27,7 @@
 					<form action="{% url 'create_task' project.id %}" method="POST">
 
 						{% csrf_token %}
-						<input type="text" name="title" id="id_title" required placeholder="Start typing here to create a task...">
+						<input type="text" name="title" id="id_title {{project.id}}" required placeholder="Start typing here to create a task...">
 					
 
 						<button type="submit" class= "button_add_task" href="">Add Task</button>
@@ -45,7 +45,7 @@
 
 				<table class="raz">
 					
-					<tbody id="groups">
+					<tbody id="groups" class="groups">
 					{% for task in project.task_set.all %}
 
 					
@@ -81,13 +81,13 @@
 				</table>
 
 
-				<form id="orderingForm" method="post" action="{% url 'save-group-oldering'  %}">
+				<form id="orderingForm {{project.id}}" class="orderingForm" method="post" action="{% url 'save-group-oldering'  %}">
 					{% csrf_token %}
 				
-					<input type="hidden" id="orderingInput" name="ordering">
+					<input type="hidden" id="orderingInput {{project.id}}" class="orderingInput" name="ordering">
 				</form>
 
-				<button id="saveOrdering">Save ordering</button>
+				<button id="saveOrdering {{project.id}}" class="saveOrdering">Save ordering</button>
 						
 						
 
