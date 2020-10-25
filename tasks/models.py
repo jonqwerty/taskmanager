@@ -37,6 +37,9 @@ class Task(models.Model):
 	def deadline_func(self):
 		days = self.deadline - date.today()
 		return days
+		
+	class Meta: 		
+		ordering = ['order']
 
 # class Group(models.Model):
 #     lookup_id = models.UUIDField(default=uuid.uuid4, editable=False, db_index=True)

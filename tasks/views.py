@@ -152,7 +152,8 @@ def deadlineTask(request, pk):
 @require_POST
 def save_new_ordering(request):
 	form = OrderingForm(request.POST)
-
+	projects = Project.objects.all()
+	
 	if form.is_valid():
 	    ordered_ids = form.cleaned_data["ordering"].split(',')
 
@@ -163,16 +164,16 @@ def save_new_ordering(request):
 	            group.order = current_order
 	            group.save()
 	            current_order += 1
+	        print (type(id))
+	        print ((Task.objects.get(id=1)).order)
 
-
-	print (type(id))
-	print ((Task.objects.get(id=1)).order)
+	return redirect('/')
 	
-	a = Task.objects.all().order_by('order')
 
-	context = {'aa':a}
+	# tasks= Task.objects.all().order_by('order')
+	# context = {'tasks':tasks}
 
-	return render(request, 'tasks/reorder.html', context)
+	# return render(request, 'tasks/reorder.html', context)
 	
 
 	
