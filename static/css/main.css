@@ -11,6 +11,45 @@ body{
   	flex-direction: column;
 }
 
+.raz {
+	width: 800px;
+	border-collapse: collapse;
+	border-radius: 0 0 8px 8px;
+}
+
+.raz td{
+	padding: 5px;
+ 	background: white; 
+ 	border:1px solid black;
+
+}
+
+
+
+
+.handle {
+    display: inline-block;
+    border-top: 3px solid var(--dark);
+    width: 30px;
+    padding-top: 5px;
+    cursor: grab;
+}
+/*.handle:after, .handle:before {
+    display: block;
+    content: "";
+    padding-top: 5px;
+    border-top: 3px solid var(--dark);
+}*/
+.handle:hover, .handle:hover:before, .handle:hover:after {
+    border-color: var(--primary);
+}
+.handle:active, .handle:active:before, .handle:active:after {
+    cursor: grabbing;
+}
+
+
+
+
 .title{
 	text-transform: uppercase;
 	text-align: center;

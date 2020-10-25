@@ -1,5 +1,5 @@
 from django import forms
-from django.forms import ModelForm
+from django.forms import ModelForm, Form
 
 from .models import *
 
@@ -17,6 +17,10 @@ class TaskForm(forms.ModelForm):
 		fields = '__all__'
 
 
+class OrderingForm(forms.Form):
+	ordering = forms.CharField()
+
+    
 #class TaskForm(forms.ModelForm):
 	###title = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Add new task...'}))
 	#class Meta:

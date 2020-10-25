@@ -27,7 +27,7 @@
 					<form action="{% url 'create_task' project.id %}" method="POST">
 
 						{% csrf_token %}
-						<input type="text" name="title" id="id_title" required placeholder="Start typing here to create a task...">
+						<input type="text" name="title" id="id_title {{project.id}}" required placeholder="Start typing here to create a task...">
 					
 
 						<button type="submit" class= "button_add_task" href="">Add Task</button>
@@ -39,37 +39,60 @@
 				</div>
 
 			
-				{% for task in project.task_set.all %}
-
 				
-					<div class="content">
-						
-						{% if task.complete == True %}
-						<input class="checkbox" type="checkbox" name="complete" id="id_complete" checked >
-						{% else %}
-						<input class="checkbox" type="checkbox" name="complete" id="id_complete"  >
-						{% endif %}
+				
+					
 
-						<p>{{task.title}}</p>
+				<table class="raz">
+					
+					<tbody id="groups" class="groups">
+					{% for task in project.task_set.all %}
 
-						<a class="calendar" href="{% url 'deadline_task' task.id %}">
-						<img src=" static/images/calendar.png " alt="calendar_icon">
-						</a>
+					
 
-						<a href="{% url 'update_task' task.id %}" class="edittask">
-							<img src=" static/images/pencil_icon.png " alt="pencil_icon">
-						</a>
-						
-						<a href="{% url 'delete_task' task.id %}" class="deletetask">
-							<img src=" static/images/trash.png " alt="trash_icon">
-						</a>
-						
-						
+						<tr data-id="{{ task.id }}">
+							<td style="width: 50px;"><span class="handle"><img src=" static/images/Up_Down.png " alt="Up_Down_icon"></span></td>
+
+							{% if task.complete == True %}
+							<td style="width: 50px;"class="ch"><input class="checkbox" type="checkbox" name="complete" id="id_complete" checked ></td>
+							{% else %}
+							<td style="width: 50px;"><input class="checkbox" type="checkbox" name="complete" id="id_complete"  ></td>
+							{% endif %}
+
+							<td style="width: 550px;"><p>{{task.title}}</p></td>
+
+							<td style="width: 50px;"><a class="calendar" href="{% url 'deadline_task' task.id %}">
+							<img src=" static/images/calendar.png " alt="calendar_icon">
+							</a></td>
+
+							<td style="width: 50px;"><a href="{% url 'update_task' task.id %}" class="edittask">
+								<img src=" static/images/pencil_icon.png " alt="pencil_icon">
+							</a></td>
+									
+							<td style="width: 50px;"><a href="{% url 'delete_task' task.id %}" class="deletetask">
+								<img src=" static/images/trash.png " alt="trash_icon">
+							</a></td>
+
+						</tr>
+
+					{% endfor%}
+					</tbody>
+					
+				</table>
+
+
+				<form id="orderingForm {{project.id}}" class="orderingForm" method="post" action="{% url 'save-group-oldering'  %}">
+					{% csrf_token %}
+				
+					<input type="hidden" id="orderingInput {{project.id}}" class="orderingInput" name="ordering">
+				</form>
+
+				<button id="saveOrdering {{project.id}}" class="saveOrdering">Save ordering</button>
 						
 						
 
-					</div>
-				{% endfor%}
+					
+				
 			
 				
 		</section>

@@ -3,6 +3,8 @@ from django.http import HttpResponse , HttpResponseRedirect
 
 from django.urls import reverse
 
+from django.views.decorators.http import *
+from django.db import transaction
 
 from .models import *
 from .forms import *
@@ -11,7 +13,9 @@ from .forms import *
 
 def projects_list(request):
 
-	projects = Project.objects.order_by('created')
+	# projects = Project.objects.order_by('created')
+
+	projects = Project.objects.all()
 
 	
 	#project = Project.objects.get(pk = 2)
@@ -96,6 +100,8 @@ def updateTask(request, pk):
 			form.save()
 		return redirect('/')
 
+	print(type(task.id))
+
 	context = {'form':form}	
 	return render(request, 'tasks/create_task.html', context )
 
@@ -141,3 +147,33 @@ def deadlineTask(request, pk):
 
 # 	context = {'form':form}
 # 	return render(request, 'tasks/create_project.html', context )
+
+
+@require_POST
+def save_new_ordering(request):
+	form = OrderingForm(request.POST)
+	projects = Project.objects.all()
+	
+	if form.is_valid():
+	    ordered_ids = form.cleaned_data["ordering"].split(',')
+
+	    with transaction.atomic():
+	        current_order = 1
+	        for id in ordered_ids:
+	            group = Task.objects.get(id__exact=id)
+	            group.order = current_order
+	            group.save()
+	            current_order += 1
+	        print (type(id))
+	        print ((Task.objects.get(id=1)).order)
+
+	return redirect('/')
+	
+
+	# tasks= Task.objects.all().order_by('order')
+	# context = {'tasks':tasks}
+
+	# return render(request, 'tasks/reorder.html', context)
+	
+
+	
