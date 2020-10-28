@@ -1,20 +1,21 @@
 
-
 $( function() {
-    	$( ".groups" ).sortable({
-    		handle: ".handle",
+        $( ".groups" ).sortable({
+            handle: ".handle",
             
-    	});
-    	
-    	$('.groups').css('border', 'solid 3px red')
+        });
+        
+        $('.groups').css('border', 'solid 3px red')
 } );
 
-const saveOrderingButton = document.querySelector(".saveOrdering");
+const saveOrderingButton = document.querySelectorAll(".saveOrdering");
+
 const orderingForm = document.querySelector(".orderingForm");
 const formInput = orderingForm.querySelector(".orderingInput");
 
-function saveOrdering() {
-    const rows = document.getElementById("groups").querySelectorAll('tr');
+var www = function saveOrdering(i) {
+    return function () {
+    const rows = document.querySelectorAll(".groups")[i].querySelectorAll('tr');
     let ids = [];
     for (let row of rows) {
         ids.push(row.dataset.id);
@@ -25,14 +26,19 @@ function saveOrdering() {
     console.log(ids)
     console.log(typeof ids)
     console.log(typeof(ids[0]))
+    }
 }
 
-saveOrderingButton.addEventListener('click', saveOrdering);
+//saveOrderingButton.addEventListener('click', saveOrdering);
 
-/*for (var i = 0; i < saveOrderingButton.length; i++) {
-   saveOrderingButton[i].addEventListener('click', saveOrdering);
-   };
-*/
+for (var i = 0; i < saveOrderingButton.length; i++) {
+   saveOrderingButton[i].onclick = www(i)
+    
+};
+
+
+
+
 
 
 
